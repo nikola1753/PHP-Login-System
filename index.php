@@ -30,9 +30,9 @@
       ?>
       
       <br/>
-      <a href="login.php">Login</a>
+      <a href="/nt/lrp/login.php">Login</a>
       <br/>
-      <a href="register.php">Register</a>
+      <a href="/nt/lrp/register.php">Register</a>
       
     </div>
   
