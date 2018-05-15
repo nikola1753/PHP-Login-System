@@ -21,7 +21,27 @@ $(document)
   
   $error.hide();
   
-  console.log(data);
+  $.ajax({
+    type: 'POST',
+    url: '/nt/lrp/ajax/register.php',
+    data: data,
+    dataType: 'json',
+    async: true,
+  })
+  .done(function ajaxDone(data) {
+    console.log(data);
+    console.log('ajax done');
+    /*if (data.redirect !== undefined) {
+      window.location = data.redirect;
+    }*/
+  })
+  .fail(function ajaxFailed(e) {
+    console.log(e);
+    console.log('ajax failed');
+  })
+  .always(function ajaxAlwaysDoThis(data) {
+    console.log('always');
+  })
   
   // alert("form was submitted");
   
