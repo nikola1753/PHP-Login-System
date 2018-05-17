@@ -47,6 +47,7 @@ ForceLogin();
     <div class="uk-section uk-container">
       <h3>Dashboard</h3>
       <p>Hello <?php echo $user['email']; ?>, you registered at <?php echo $user['reg_time']; ?>.</p>
+      <a href="/nt/lrp/logout.php">Logout</a>
     </div>
   
   <?php require_once "inc/footer.php"; ?>
