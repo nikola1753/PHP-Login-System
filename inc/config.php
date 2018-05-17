@@ -14,8 +14,9 @@ if(!isset($_SESSION)) {
 // config below
 
 // include db.php
-include_once 'classes/db.php';
-include_once 'classes/filter.php';
+include_once 'classes/DB.php';
+include_once 'classes/Filter.php';
+include_once 'classes/User.php';
 include_once 'functions.php';
 
 $con = DB::getConnection();
