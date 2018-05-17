@@ -31,9 +31,14 @@ $(document)
   .done(function ajaxDone(data) {
     console.log(data);
     console.log('ajax done');
-    /*if (data.redirect !== undefined) {
+    
+    if (data.redirect !== undefined) {
       window.location = data.redirect;
-    }*/
+    } else if (data.error !== undefined) {
+      $error
+        .text(data.error)
+        .show();
+    }
   })
   .fail(function ajaxFailed(e) {
     console.log(e);
