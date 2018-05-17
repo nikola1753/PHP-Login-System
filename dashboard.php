@@ -4,24 +4,9 @@
   // require the config
   require_once "inc/config.php";
 
-ForceLogin();
+  Page::ForceLogin();
 
-  $user_id = $_SESSION['user_id'];
-  $getUserInfo = $con->prepare("SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1");
-  $getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-  $getUserInfo->execute();
-
-  if($getUserInfo->rowCount() == 1) {
-    // user found
-    $user = $getUserInfo->fetch(PDO::FETCH_ASSOC);
-  } else {
-    // user isn't signed in
-    header("Location: /nt/lrp/logout.php");
-    exit;
-  }
-
-  //echo $_SESSION['user_id'] . " is your user id";
-  //exit;
+  $User = new User($_SESSION['user_id']);
 
 ?>
 
@@ -46,7 +31,7 @@ ForceLogin();
   
     <div class="uk-section uk-container">
       <h3>Dashboard</h3>
-      <p>Hello <?php echo $user['email']; ?>, you registered at <?php echo $user['reg_time']; ?>.</p>
+      <p>Hello <?php echo $User->email; ?>, you registered at <?php echo $User->reg_time; ?>.</p>
       <a href="/nt/lrp/logout.php">Logout</a>
     </div>
   
