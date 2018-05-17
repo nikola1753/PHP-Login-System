@@ -13,17 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // $email = strtolower($email);
   $password = $_POST['password'];
   
-  // make sure user doesn't exist
-  $findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = LOWER(:email) LIMIT 1");
-  $findUser->bindParam(':email', $email, PDO::PARAM_STR);
-  $findUser->execute();
+  $userFound = FindUser($con, $email, true);
   
-  if($findUser->rowCount() == 1) {
+  if($userFound) {
     // user exists, try and sign them in
 
-    $user = $findUser->fetch(PDO::FETCH_ASSOC);
-    $user_id = (int)$user['user_id'];
-    $hash = $user['password'];
+    $user_id = (int) $userFound['user_id'];
+    $hash = $userFound['password'];
     
     if(password_verify($password, $hash)) {
       // user is signed in
