@@ -31,7 +31,7 @@ ForceLogin();
   <body>
   
     <div class="uk-section uk-container">
-      Dashboard here
+      You're signed in as user <?php echo $_SESSION['user_id']; ?>
     </div>
   
   <?php require_once "inc/footer.php"; ?>

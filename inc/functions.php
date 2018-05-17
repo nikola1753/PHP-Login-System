@@ -10,4 +10,14 @@ function ForceLogin() {
     }
 }
 
+function ForceDashboard() {
+  if(isset($_SESSION['user_id'])) {
+      // user is not allowed here
+      header("Location: /nt/lrp/dashboard.php");
+      exit;
+    } else {
+      // user is allowed here
+    }
+}
+
 ?>
