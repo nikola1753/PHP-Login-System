@@ -36,7 +36,7 @@ $(document)
       window.location = data.redirect;
     } else if (data.error !== undefined) {
       $error
-        .text(data.error)
+        .html(data.error)
         .show();
     }
   })

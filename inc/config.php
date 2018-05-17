@@ -6,6 +6,11 @@ if (!defined("__CONFIG__")) {
     exit("You don't have a config file");
 }
 
+// sessions are on
+if(!isset($_SESSION)) {
+  session_start();
+}
+
 // config below
 
 // include db.php
